@@ -24,3 +24,7 @@ hs_err_pid*
 target
 .DS_Store
 
+server/local/nodejs
+server/local/dubbo
+server/local/zookeeper
+

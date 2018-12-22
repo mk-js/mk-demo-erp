@@ -1,0 +1,40 @@
+2018-12-22 10:43:02,365 [myid:] - INFO  [main:QuorumPeerConfig@103] - Reading configuration from: /Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../conf/zoo.cfg
+2018-12-22 10:43:02,370 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2018-12-22 10:43:02,370 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2018-12-22 10:43:02,370 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2018-12-22 10:43:02,371 [myid:] - WARN  [main:QuorumPeerMain@113] - Either no config or no quorum defined in config, running  in standalone mode
+2018-12-22 10:43:02,386 [myid:] - INFO  [main:QuorumPeerConfig@103] - Reading configuration from: /Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../conf/zoo.cfg
+2018-12-22 10:43:02,386 [myid:] - INFO  [main:ZooKeeperServerMain@95] - Starting server
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:host.name=localhost
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.version=1.8.0_121
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.vendor=Oracle Corporation
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.class.path=/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../build/classes:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../build/lib/*.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../lib/slf4j-log4j12-1.6.1.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../lib/slf4j-api-1.6.1.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../lib/netty-3.7.0.Final.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../lib/log4j-1.2.16.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../lib/jline-0.9.94.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../zookeeper-3.4.8.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../src/java/lib/*.jar:/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin/../conf:
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.library.path=/Users/lisga/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.io.tmpdir=/var/folders/c0/rsbr0x717ml687sm8rl8n5q00000gn/T/
+2018-12-22 10:43:02,402 [myid:] - INFO  [main:Environment@100] - Server environment:java.compiler=<NA>
+2018-12-22 10:43:02,403 [myid:] - INFO  [main:Environment@100] - Server environment:os.name=Mac OS X
+2018-12-22 10:43:02,404 [myid:] - INFO  [main:Environment@100] - Server environment:os.arch=x86_64
+2018-12-22 10:43:02,404 [myid:] - INFO  [main:Environment@100] - Server environment:os.version=10.14.1
+2018-12-22 10:43:02,404 [myid:] - INFO  [main:Environment@100] - Server environment:user.name=lisga
+2018-12-22 10:43:02,404 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/Users/lisga
+2018-12-22 10:43:02,404 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/Users/lisga/Desktop/code/mk-js/demo/mk-demo-erp/server/zookeeper/bin
+2018-12-22 10:43:02,412 [myid:] - INFO  [main:ZooKeeperServer@787] - tickTime set to 2000
+2018-12-22 10:43:02,412 [myid:] - INFO  [main:ZooKeeperServer@796] - minSessionTimeout set to -1
+2018-12-22 10:43:02,413 [myid:] - INFO  [main:ZooKeeperServer@805] - maxSessionTimeout set to -1
+2018-12-22 10:43:02,441 [myid:] - INFO  [main:NIOServerCnxnFactory@89] - binding to port 0.0.0.0/0.0.0.0:2181
+2018-12-22 10:43:02,443 [myid:] - ERROR [main:ZooKeeperServerMain@63] - Unexpected exception, exiting abnormally
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:67)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.configure(NIOServerCnxnFactory.java:90)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:111)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.initializeAndRun(ZooKeeperServerMain.java:86)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.main(ZooKeeperServerMain.java:52)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:116)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:78)

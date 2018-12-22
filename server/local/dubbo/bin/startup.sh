@@ -1,0 +1,1 @@
+nohup java $1 -jar "../erp-service.jar" &

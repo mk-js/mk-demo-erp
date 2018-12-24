@@ -27,7 +27,7 @@ export default class action {
             ? localStorage['login.password']
             : md5(pwd)
 
-        const response = await fetch.post('/v1/user/login', { account: form.user, password: pwd })
+        const response = await fetch.post('/v1/sys/user/login', { account: form.user, password: pwd })
         
         this.base.context.set('currentUser', response)
 

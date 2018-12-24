@@ -26,6 +26,6 @@ cp ../../src/web/build/pkg/* nodejs/html/
 
 echo run  $(date)
 cd scripts
-sh run.sh
+# sh run.sh
 cd ..
  

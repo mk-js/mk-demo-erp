@@ -18,8 +18,11 @@ import com.mk.eap.entity.dto.InjectorConfig;
 import com.mk.eap.entity.dto.PageResultDto;
 import com.mk.eap.entity.impl.EntityServiceImpl;
 import com.mkdemo.erp.sys.dao.SysUserMapper;
-import com.mkdemo.erp.sys.dto.SysUserDto;  
+import com.mkdemo.erp.sys.dto.SysTaskDto;
+import com.mkdemo.erp.sys.dto.SysUserDto;
+import com.mkdemo.erp.sys.itf.ISysTaskService;
 import com.mkdemo.erp.sys.itf.ISysUserService;
+import com.mkdemo.erp.sys.utils.DubboInvokeHelper;
 import com.mkdemo.erp.sys.vo.SysUserVo;
 
 /**
@@ -78,6 +81,13 @@ public class SysUserServiceImpl extends EntityServiceImpl<SysUserDto, SysUserVo,
 		Token token = new Token();
 		token.setUserId(userDto.getId());
 		userDto.setToken(token);
+		
+		DubboInvokeHelper<ISysTaskService> taskService = new DubboInvokeHelper<>();
+		SysTaskDto dto = new SysTaskDto();
+		List<SysTaskDto> tasks = taskService.getInvokeService("").query(dto);
+		
+		userDto.setEmail(String.valueOf(tasks.size()));
+		
 		return userDto;
 	}
 

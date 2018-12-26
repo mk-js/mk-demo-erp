@@ -11,6 +11,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.mk.eap.common.domain.BusinessException;
 import com.mk.eap.common.domain.PageObject;
 import com.mk.eap.common.domain.Token;
+import com.mk.eap.common.utils.DubboServiceHelper;
 import com.mk.eap.common.utils.MD5Util;
 import com.mk.eap.common.utils.StringTokenizer;
 import com.mk.eap.component.oid.itf.IOidService;
@@ -22,7 +23,6 @@ import com.mkdemo.erp.sys.dto.SysTaskDto;
 import com.mkdemo.erp.sys.dto.SysUserDto;
 import com.mkdemo.erp.sys.itf.ISysTaskService;
 import com.mkdemo.erp.sys.itf.ISysUserService;
-import com.mkdemo.erp.sys.utils.DubboInvokeHelper;
 import com.mkdemo.erp.sys.vo.SysUserVo;
 
 /**
@@ -81,12 +81,15 @@ public class SysUserServiceImpl extends EntityServiceImpl<SysUserDto, SysUserVo,
 		Token token = new Token();
 		token.setUserId(userDto.getId());
 		userDto.setToken(token);
-		
-		DubboInvokeHelper<ISysTaskService> taskService = new DubboInvokeHelper<>();
+		 
+		/* test dubboInvokeHelper
 		SysTaskDto dto = new SysTaskDto();
-		List<SysTaskDto> tasks = taskService.getInvokeService("").query(dto);
+		String itfName = ISysTaskService.class.getTypeName();
+		ISysTaskService taskService = (ISysTaskService)DubboServiceHelper.getService(itfName);
+		List<SysTaskDto> tasks = taskService.query(dto);
 		
 		userDto.setEmail(String.valueOf(tasks.size()));
+		*/
 		
 		return userDto;
 	}

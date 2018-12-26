@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.mk.eap.common.domain.BusinessException;
+import com.mk.eap.common.domain.DTO;
 import com.mk.eap.common.domain.PageObject;
 import com.mk.eap.common.domain.Token;
 import com.mk.eap.common.utils.DubboServiceHelper;
@@ -17,7 +18,9 @@ import com.mk.eap.common.utils.StringTokenizer;
 import com.mk.eap.component.oid.itf.IOidService;
 import com.mk.eap.entity.dto.InjectorConfig;
 import com.mk.eap.entity.dto.PageResultDto;
+import com.mk.eap.entity.impl.EntityServiceHelper;
 import com.mk.eap.entity.impl.EntityServiceImpl;
+import com.mk.eap.entity.itf.IEntityService;
 import com.mkdemo.erp.sys.dao.SysUserMapper;
 import com.mkdemo.erp.sys.dto.SysTaskDto;
 import com.mkdemo.erp.sys.dto.SysUserDto;
@@ -90,6 +93,10 @@ public class SysUserServiceImpl extends EntityServiceImpl<SysUserDto, SysUserVo,
 		
 		userDto.setEmail(String.valueOf(tasks.size()));
 		*/
+		
+		IEntityService personService = EntityServiceHelper.getService("sys_person", null);
+		DTO dto = personService.findById(1L);
+		userDto.setEmail(dto.getFieldValue("id").toString());
 		
 		return userDto;
 	}

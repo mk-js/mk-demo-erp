@@ -23,12 +23,27 @@ var handlers = {
         }
         
         var tasks = taskService.query(dto);
-        
+
         return tasks
 
         //return 'test'
     },
     ping:function(args){
+        var voBase = Java.type('com.mk.eap.common.domain.VO')
+        var serializable = Java.type('java.io.Serializable')
+        var taskVo = Java.extend(voBase, serializable, {
+            serialVersionUID:1,
+            id:1,
+            code:'',
+            name:''
+        })
+        var mapperBase = Java.type('com.mk.eap.entity.dao.EntityMapper<' + taskVo.class.getTypeName() + '>')
+        var taskMapper = Java.extend(mapperBase)
+        var mapper = new taskMapper();
+
+        return mapper.selectAll()
+ 
+
         return args
     }
 }

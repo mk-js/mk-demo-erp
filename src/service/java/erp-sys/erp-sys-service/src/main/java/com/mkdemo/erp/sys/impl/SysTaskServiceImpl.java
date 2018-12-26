@@ -43,8 +43,9 @@ public class SysTaskServiceImpl extends EntityServiceImpl<SysTaskDto, SysTaskVo,
 	protected void setObjectKeyValue(SysTaskDto createDto) {
 		if (createDto.getId() == null) {
 			createDto.setId(idService.generateObjectID());
-		}
+		}  
 	}
+	
 	
 /*
 	public SysTaskServiceImpl() {

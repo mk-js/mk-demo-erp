@@ -71,7 +71,7 @@
 		<property name="configLocation" value="classpath:conf/mybatis-config.xml"></property>
 		<!-- 自动扫描mapping.xml文件 -->
 		<property name="mapperLocations" value="classpath:mapping/**/*.xml"></property>
-		<property name="typeAliasesPackage" value="com.mkdemo.erp.set.vo,com.mkdemo.erp.sys.vo"/>
+		<property name="typeAliasesPackage" value="com.mk.eap.sys.vo,com.mkdemo.erp.set.vo,com.mkdemo.erp.sys.vo"/>
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
@@ -88,7 +88,7 @@
 
 	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mkdemo.erp.set.dao,com.mkdemo.erp.sys.dao" />
+		<property name="basePackage" value="com.mk.eap.sys.dao,com.mkdemo.erp.set.dao,com.mkdemo.erp.sys.dao" />
 		<property name="properties">
 			 <value>
                  mappers=com.mk.eap.entity.dao.EntityMapper

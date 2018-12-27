@@ -85,18 +85,20 @@ public class SysUserServiceImpl extends EntityServiceImpl<SysUserDto, SysUserVo,
 		token.setUserId(userDto.getId());
 		userDto.setToken(token);
 		 
-		/* test dubboInvokeHelper
+		/*//test DubboServiceHelper
 		SysTaskDto dto = new SysTaskDto();
 		String itfName = ISysTaskService.class.getTypeName();
 		ISysTaskService taskService = (ISysTaskService)DubboServiceHelper.getService(itfName);
 		List<SysTaskDto> tasks = taskService.query(dto);
 		
 		userDto.setEmail(String.valueOf(tasks.size()));
-		*/
+		//*/
 		
+		/*//test EntityServiceHelper
 		IEntityService personService = EntityServiceHelper.getService("sys_person", null);
 		DTO dto = personService.findById(1L);
 		userDto.setEmail(dto.getFieldValue("id").toString());
+		//*/
 		
 		return userDto;
 	}

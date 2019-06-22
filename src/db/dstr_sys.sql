@@ -33,3 +33,67 @@ CREATE TABLE IF NOT EXISTS `sys_task`(
   `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间戳',
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '任务表';
+
+#实体包表
+CREATE TABLE IF NOT EXISTS `sys_entity_group`(
+  `id` bigint(18) NOT NULL COMMENT 'ID', 
+  `parentId` bigint(18) NULL COMMENT '上级包ID',
+  `code` varchar(500) NOT NULL COMMENT '编码',
+  `name` varchar(50) NOT NULL COMMENT '名称',
+  `description` varchar(255) NULL COMMENT '描述', 
+  `isNoUsed`  tinyint(1) NULL DEFAULT 0 COMMENT '不使用',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间戳',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '实体包表';
+
+#实体表
+CREATE TABLE IF NOT EXISTS `sys_entity`(
+  `id` bigint(18) NOT NULL COMMENT 'ID', 
+  `entityGroupId` bigint(18) NOT NULL COMMENT '所属包ID',
+  `code` varchar(200) NOT NULL COMMENT '编码',
+  `name` varchar(50) NOT NULL COMMENT '名称',
+  `tableName` varchar(50) NOT NULL COMMENT '表名',
+  `description` varchar(255) NULL COMMENT '描述', 
+  `options`  varchar(4000) NULL COMMENT '配置',
+  `isNoUsed`  tinyint(1) NULL DEFAULT 0 COMMENT '不使用',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间戳',
+  PRIMARY KEY (`id`),
+  CONSTRAINT `sys_entity.entityGroup` FOREIGN KEY (`entityGroupId`) REFERENCES `sys_entity_group`(`id`) ON UPDATE CASCADE ON DELETE RESTRICT
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '实体表';
+
+#实体字段表
+CREATE TABLE IF NOT EXISTS `sys_entity_field`(
+  `id` bigint(18) NOT NULL COMMENT 'ID', 
+  `entityId` bigint(18) NOT NULL COMMENT '所属实体ID',
+  `code` varchar(200) NOT NULL COMMENT '编码',
+  `name` varchar(50) NOT NULL COMMENT '名称',
+  `description` varchar(255) NULL COMMENT '描述', 
+  `typeName` varchar(50) NOT NULL COMMENT '类型',
+  `options`  varchar(4000) NULL COMMENT '配置',
+  `isNoUsed`  tinyint(1) NULL DEFAULT 0 COMMENT '不使用',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间戳',
+  PRIMARY KEY (`id`),
+  CONSTRAINT `sys_entity.fields` FOREIGN KEY (`entityId`) REFERENCES `sys_entity`(`id`) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '实体字段表';
+
+
+#实体数据表
+CREATE TABLE IF NOT EXISTS `sys_entity_data`(
+  `id` bigint(18) NOT NULL COMMENT 'ID', 
+  `entityId` bigint(18) NOT NULL COMMENT '所属实体ID',
+  `code` varchar(200) NOT NULL COMMENT '编码',
+  `name` varchar(50) NOT NULL COMMENT '名称',
+  `description` varchar(255) NULL COMMENT '描述',  
+  `extra`  JSON NULL COMMENT '扩展字段',
+  `isNoUsed`  tinyint(1) NULL DEFAULT 0 COMMENT '不使用',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  `ts` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '时间戳',
+  PRIMARY KEY (`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '实体数据表';

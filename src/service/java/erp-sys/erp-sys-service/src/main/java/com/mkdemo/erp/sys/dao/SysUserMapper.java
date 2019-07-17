@@ -5,7 +5,7 @@ import com.mkdemo.erp.sys.vo.SysUserVo;
 
 /**
  * @Title:       SysUserMapper.java
- * @Package:     com.mk.eap.sys.dao
+ * @Package:     com.mkdemo.erp.sys.dao
  * @Description: 类文件概述
  * 
  * <p>

@@ -61,8 +61,9 @@
 		<!-- 配置监控统计拦截的filters -->
 		<property name="filters" value="stat,config" /> 
 		<!-- 解密配置
-		<property name="filters" value="config" /> -->
+		<property name="filters" value="config" />
      	<property name="connectionProperties" value="config.decrypt=false;config.decrypt.key=${jdbc.publickey}" />
+		 -->
 	</bean>
 
 	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->

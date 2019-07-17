@@ -1,0 +1,28 @@
+{
+  "isMakaApp": true,
+  "name": "sys-entity-group",
+  "description": "sys-entity-group",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makajs/sys-entity-group.git"
+  },
+  "bugs": {
+    "url": "https://github.com/makajs/sys-entity-group/issues"
+  },
+  "homepage": "https://github.com/makajs/sys-entity-group#readme",
+  "scripts": {
+    "start": "maka start",
+    "dev": "maka start --dev",
+    "build": "maka build",
+    "pkg": "maka pkg"
+  },
+  "dependencies": {},
+  "server": {
+    "proxy": null,
+    "port": 8000
+  },
+  "subAppDir": "./apps"
+}

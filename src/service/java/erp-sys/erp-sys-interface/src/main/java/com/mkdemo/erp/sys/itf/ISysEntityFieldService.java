@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mk.eap.common.annotation.ApiMapping;
 import com.mk.eap.entity.itf.IEntityService;
-import com.mk.mkdemo.erp.dto.SysEntityFieldDto;
+import com.mkdemo.erp.sys.dto.SysEntityFieldDto;
 
 //@RequestMapping("/sys/entity/field")
 //@ApiMapping("*")//create;query;update;delete

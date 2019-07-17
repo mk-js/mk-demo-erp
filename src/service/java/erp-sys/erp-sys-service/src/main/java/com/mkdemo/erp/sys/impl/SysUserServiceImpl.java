@@ -28,7 +28,7 @@ import com.mkdemo.erp.sys.vo.SysUserVo;
 
 /**
  * @Title: SysUserServiceImpl.java
- * @Package: com.mk.eap.sys.impl
+ * @Package: com.mkdemo.erp.sys.impl
  * @Description: 用户接口实现类
  * @version 1.0
  * 

@@ -18,13 +18,7 @@
 		<artifactId>eap-common</artifactId>
 		<version>${project.version}</version>
 	 </dependency>
-
-	<dependency>
-		<groupId>com.mk.eap</groupId>
-		<artifactId>eap-sys-service</artifactId>
-		<version>${project.version}</version>
-	 </dependency>
-	 
+  
 	<dependency>
       <groupId>com.mkdemo.erp</groupId>
       <artifactId>erp-set-service</artifactId>
@@ -130,7 +124,7 @@
 							<type>jar</type>
 							<includeTypes>jar</includeTypes>
 							<useUniqueVersions>false</useUniqueVersions>
-						    <excludeArtifactIds>eap-component-service,eap-sys-service,erp-set-service,erp-sys-service</excludeArtifactIds>
+						    <excludeArtifactIds>eap-component-service,erp-set-service,erp-sys-service</excludeArtifactIds>
 							<outputDirectory>
 								${project.build.directory}/lib
 							</outputDirectory>
@@ -152,15 +146,7 @@
 									<type>jar</type>
 									<overWrite>false</overWrite>
 									<outputDirectory>./target/classes/</outputDirectory>
-								</artifactItem> 
-								<artifactItem>
-									<groupId>com.mk.eap</groupId>
-									<artifactId>eap-sys-service</artifactId>
-									<version>${project.version}</version>
-									<type>jar</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>./target/classes/</outputDirectory>
-								</artifactItem> 
+								</artifactItem>  
 			                    <artifactItem>
 			                        <groupId>com.mkdemo.erp</groupId>
 			                        <artifactId>erp-set-service</artifactId>

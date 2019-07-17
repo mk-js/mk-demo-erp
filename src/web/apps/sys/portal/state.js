@@ -26,6 +26,18 @@ const menu = [{
         title: 'BOM',
         appName: 'set-bom-list'
     }]
+}, {
+    key: '4',
+    title: '系统设置',
+    children: [{
+        key: '401',
+        title: '实体',
+        appName: 'sys-entity-list'
+    },{
+        key: '402',
+        title: '数据',
+        appName: 'set-entity-data'
+    }]
 }]
 export default {
     data: {

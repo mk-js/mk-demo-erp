@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mkdemo.erp.sys.dao.SysEntityMapper">
+ 	<select id="loadTableInfo" resultType="com.mkdemo.erp.sys.vo.SysEntityVo" parameterType="java.lang.String">
+		SELECT table_name AS "name", table_name AS "code", table_name AS "tableName", table_comment AS description
+		FROM information_schema.tables
+		WHERE  
+				<if test="dbName != null and dbName != ''">  
+					TABLE_SCHEMA = #{dbName}
+				</if>  
+				<if test="dbName == null or dbName ==''">  
+					TABLE_SCHEMA = database()
+				</if>    
+				AND TABLE_NAME = #{tableName}
+	</select>
+	
+ 	<select id="loadTables" resultType="com.mkdemo.erp.sys.vo.SysEntityVo" parameterType="java.lang.String">
+		SELECT table_comment as name, table_name as code, table_name as tableName, table_comment AS description
+		FROM information_schema.tables t
+		  LEFT JOIN sys_entity e on t.table_name = e.tableName
+		where 
+				<if test="dbName != null and dbName != ''">  
+					TABLE_SCHEMA = #{dbName}
+				</if>  
+				<if test="dbName == null or dbName == ''">   
+					TABLE_SCHEMA = database()
+				</if>    
+			and e.id is null;
+	</select>
+	  
+ 	<select id="getGroupCode" resultType="java.lang.String" parameterType="java.lang.String">
+ 	SELECT g.code
+	FROM sys_entity e
+	  JOIN sys_entity_group g
+	    ON e.entityGroupId = g.id AND e.tableName = #{tableName}
+
+	</select>
+	
+</mapper>
